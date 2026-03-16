@@ -2,7 +2,7 @@ name: Housing Monitor
 
 on:
   schedule:
-    - cron: "*/30 * * * *" #  30 minutes
+    - cron: "*/30 * * * *"
   workflow_dispatch:
 
 jobs:
@@ -25,22 +25,21 @@ jobs:
 
       - name: Run monitor
         env:
-          SMTP_USER: ${{ secrets.SMTP_USER }}
-          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          ALERT_TO: ${{ secrets.ALERT_TO }}
-          APPLICANT_SALUTATION: ${{ secrets.APPLICANT_SALUTATION }}
-          APPLICANT_FIRST_NAME: ${{ secrets.APPLICANT_FIRST_NAME }}
-          APPLICANT_LAST_NAME: ${{ secrets.APPLICANT_LAST_NAME }}
-          APPLICANT_EMAIL: ${{ secrets.APPLICANT_EMAIL }}
-          APPLICANT_PHONE: ${{ secrets.APPLICANT_PHONE }}
-          APPLICANT_BIRTH_DATE: ${{ secrets.APPLICANT_BIRTH_DATE }}
-          APPLICANT_NATIONALITY: ${{ secrets.APPLICANT_NATIONALITY }}
-          APPLICANT_MESSAGE: ${{ secrets.APPLICANT_MESSAGE }}
-          APPLICANT_UNIVERSITY: ${{ secrets.APPLICANT_UNIVERSITY }}
-          APPLICANT_SEMESTER: ${{ secrets.APPLICANT_SEMESTER }}
-          APPLICANT_YEAR: ${{ secrets.APPLICANT_YEAR }}
+          SMTP_USER:              ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD:          ${{ secrets.SMTP_PASSWORD }}
+          ALERT_TO:               ${{ secrets.ALERT_TO }}
+          APPLICANT_SALUTATION:   ${{ secrets.APPLICANT_SALUTATION }}
+          APPLICANT_FIRST_NAME:   ${{ secrets.APPLICANT_FIRST_NAME }}
+          APPLICANT_LAST_NAME:    ${{ secrets.APPLICANT_LAST_NAME }}
+          APPLICANT_EMAIL:        ${{ secrets.APPLICANT_EMAIL }}
+          APPLICANT_PHONE:        ${{ secrets.APPLICANT_PHONE }}
+          APPLICANT_BIRTH_DATE:   ${{ secrets.APPLICANT_BIRTH_DATE }}
+          APPLICANT_NATIONALITY:  ${{ secrets.APPLICANT_NATIONALITY }}
+          APPLICANT_MESSAGE:      ${{ secrets.APPLICANT_MESSAGE }}
+          APPLICANT_UNIVERSITY:   ${{ secrets.APPLICANT_UNIVERSITY }}
+          APPLICANT_SEMESTER:     ${{ secrets.APPLICANT_SEMESTER }}
+          APPLICANT_YEAR:         ${{ secrets.APPLICANT_YEAR }}
           APPLICANT_NUM_SEMESTERS: ${{ secrets.APPLICANT_NUM_SEMESTERS }}
-
         run: python script.py
 
       - name: Commit updated state
